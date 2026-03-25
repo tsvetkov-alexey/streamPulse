@@ -1,20 +1,15 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import './styles/index.css'
+import './styles/App.css'
 
 function App() {
   const [count, setCount] = useState(0)
 
+  const videoId = "2726485553";
+
   return (
     <>
       <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
         <div>
           <h1>Get started</h1>
           <p>
@@ -29,6 +24,24 @@ function App() {
         </button>
       </section>
 
+      <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center gap-6 p-6">
+      <h1 className="text-2xl font-bold">Twitch Video Embed Demo</h1>
+
+      <div className="w-full max-w-4xl aspect-video">
+        <iframe
+          src={`https://player.twitch.tv/?video=${videoId}&parent=localhost`}
+          width="100%"
+          height="500px"
+          allowFullScreen
+        />
+      </div>
+
+      <p className="text-zinc-400 text-sm text-center max-w-xl">
+        Это встроенный Twitch player через iframe. Видео НЕ загружается напрямую,
+        а проигрывается через официальный плеер Twitch.
+      </p>
+    </div>
+
       <div className="ticks"></div>
 
       <section id="next-steps">
@@ -41,13 +54,11 @@ function App() {
           <ul>
             <li>
               <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
                 Explore Vite
               </a>
             </li>
             <li>
               <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
                 Learn more
               </a>
             </li>
