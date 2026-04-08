@@ -1,0 +1,32 @@
+@use "variables";
+
+// Общие обнуляющие стили
+/* Базовый пример полного обнуления */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Для удобного расчета размеров */
+}
+
+body {
+  line-height: 1;
+  background: var(--bg-color);
+}
+
+html, body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+ol, ul {
+  list-style: none; /* Убирает маркеры списков */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
