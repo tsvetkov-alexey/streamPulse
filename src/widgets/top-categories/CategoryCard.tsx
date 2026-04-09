@@ -1,17 +1,24 @@
-import Category from '@/shared/assets/images/category.jpg'
 import styles from './styles.module.scss'
 import { cn } from '@/shared/lib/cn.ts'
+import { formatImage } from '@/shared/lib/formatters.ts'
 
-export const CategoryCard = () => {
+interface CategoryCardProps {
+	categoryName: string
+	imageUrl: string
+}
+
+export const CategoryCard = ({ categoryName, imageUrl }: CategoryCardProps) => {
+	const imageSrc = formatImage(imageUrl, 220, 320)
+
 	return (
 		<div className={cn(styles['category-block'])}>
 			<img
-				src={Category}
+				src={imageSrc}
 				alt='category'
 				width={220}
 				height={320}
 			/>
-			<span>Just chatting</span>
+			<span>{categoryName ?? ''}</span>
 			<span>138k зрителей</span>
 		</div>
 	)
