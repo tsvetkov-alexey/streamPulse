@@ -8,7 +8,7 @@
   "jsxSingleQuote": true,
   "bracketSpacing": true,
   "bracketSameLine": false,
-  "printWidth": 140,
+  "printWidth": 120,
   "endOfLine": "auto",
   "singleAttributePerLine": true
 }
