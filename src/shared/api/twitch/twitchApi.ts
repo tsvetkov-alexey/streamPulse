@@ -1,5 +1,5 @@
-import type { TopCategoriesArgs, TopCategoriesResponse } from '@/shared/api/twitch/types.ts'
 import { baseApi } from '@/shared/api/base/baseApi.ts'
+import type { TopCategoriesArgs, TopCategoriesResponse } from '@/shared/api/twitch/types.ts'
 
 export const twitchApi = baseApi.injectEndpoints({
 	endpoints: build => ({

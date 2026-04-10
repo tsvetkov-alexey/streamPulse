@@ -1,6 +1,9 @@
+import type { ComponentProps } from 'react'
 import ContentLoader from 'react-content-loader'
 
-export const CategorySkeleton = (props: any) => {
+type CategorySkeletonProps = ComponentProps<typeof ContentLoader>
+
+export const CategorySkeleton = (props: CategorySkeletonProps) => {
 	return (
 		<ContentLoader
 			speed={2}

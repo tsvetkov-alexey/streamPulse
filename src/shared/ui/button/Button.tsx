@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { cn } from '@/shared/lib/cn.ts'
+
 import styles from './Button.module.scss'
 
 interface ButtonProps {
