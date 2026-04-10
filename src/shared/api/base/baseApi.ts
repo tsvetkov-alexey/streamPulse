@@ -13,9 +13,11 @@ export const baseApi = createApi({
 
 		// Временные заголовки для Twitch
 		prepareHeaders: headers => {
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
 			headers.set('Client-ID', import.meta.env.VITE_TWITCH_CLIENT_ID)
 
 			// Временный токен (заменить потом на реальный)
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 			const token = import.meta.env.VITE_TWITCH_ACCESS_TOKEN
 			if (token) {
 				headers.set('Authorization', `Bearer ${token}`)

@@ -1,12 +1,78 @@
 .button {
+  position: relative;
   background: var(--button-primary-color);
   color: var(--font-primary-color);
   padding: 10px 38px;
   font-size: 16px;
   border: 1px solid #B9A4A4;
   border-radius: 12px;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s ease;
 
-  &:hover {
+  &:disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  &:hover:not(:disabled) {
     cursor: pointer;
+  }
+
+  &.loading {
+    pointer-events: none;
+
+    // затемняем текст
+    color: rgba(255, 255, 255, 0.7);
+
+    // overlay для "стеклянного" эффекта
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.05);
+      z-index: 1;
+    }
+
+    // бегущая линия
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 2px; // толщина линии
+
+      background: linear-gradient(
+                      120deg,
+                      transparent 0%,
+                      transparent 30%,
+                      #ffffff 45%,
+                      #ffffff 55%,
+                      transparent 70%,
+                      transparent 100%
+      );
+
+      background-size: 300% 300%;
+      animation: borderRun 1.4s linear infinite;
+
+      // делаем только border видимым
+      -webkit-mask:
+              linear-gradient(#000 0 0) content-box,
+              linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+
+      z-index: 2;
+    }
+  }
+}
+
+@keyframes borderRun {
+  0% {
+    background-position: 0 50%;
+  }
+  100% {
+    background-position: 150% 50%;
   }
 }

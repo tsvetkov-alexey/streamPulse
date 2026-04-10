@@ -1,5 +1,6 @@
-import styles from './HeroBanner.module.scss'
 import { cn } from '@/shared/lib/cn.ts'
+
+import styles from './HeroBanner.module.scss'
 
 export const HeroBanner = () => {
 	return (
