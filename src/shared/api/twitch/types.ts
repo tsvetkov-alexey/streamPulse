@@ -3,7 +3,7 @@ export type TopCategoriesArgs = {
 	after?: string
 }
 
-type Category = {
+export type Category = {
 	id: string
 	name: string
 	box_art_url: string

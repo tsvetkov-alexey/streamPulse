@@ -6,15 +6,16 @@ interface ButtonProps {
 	children: React.ReactNode
 	className?: string
 	onClick?: () => void
+	isLoading?: boolean
 	disabled?: boolean
 }
 
-export const Button = ({ children, className, onClick, disabled }: ButtonProps) => {
+export const Button = ({ children, className, onClick, isLoading, disabled }: ButtonProps) => {
 	return (
 		<button
-			className={cn(styles.button, className)}
+			className={cn(styles.button, isLoading && styles.loading, className)}
 			onClick={onClick}
-			disabled={disabled}
+			disabled={disabled || isLoading}
 		>
 			{children}
 		</button>
