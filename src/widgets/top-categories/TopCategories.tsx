@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
+import type { Category } from '@/entities/category/model/types.ts'
 import { useGetTopCategoriesQuery } from '@/shared/api/twitch/twitchApi.ts'
-import type { Category } from '@/shared/api/twitch/types.ts'
 import Fire from '@/shared/assets/images/fire.png'
 import { cn } from '@/shared/lib/cn.ts'
 import { Button } from '@/shared/ui/button'

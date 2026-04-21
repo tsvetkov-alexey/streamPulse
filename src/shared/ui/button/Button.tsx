@@ -10,9 +10,24 @@ interface ButtonProps {
 	onClick?: () => void
 	isLoading?: boolean
 	disabled?: boolean
+	href?: string
+	target?: string
 }
 
-export const Button = ({ children, className, onClick, isLoading, disabled }: ButtonProps) => {
+export const Button = ({ children, className, onClick, isLoading, disabled, href, target }: ButtonProps) => {
+	if (href) {
+		return (
+			<a
+				href={href}
+				target={target}
+				rel='noopener noreferrer'
+				className={cn(styles.button, isLoading && styles.loading, className)}
+			>
+				{children}
+			</a>
+		)
+	}
+
 	return (
 		<button
 			className={cn(styles.button, isLoading && styles.loading, className)}
