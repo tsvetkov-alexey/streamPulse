@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
 
+import { CategoryCard } from '@/widgets/top-categories'
+
 import type { Category } from '@/entities/category/model/types.ts'
+
 import { useGetTopCategoriesQuery } from '@/shared/api/twitch/twitchApi.ts'
 import Fire from '@/shared/assets/images/fire.png'
 import { cn } from '@/shared/lib/cn.ts'
 import { Button } from '@/shared/ui/button'
 import { CategorySkeleton } from '@/shared/ui/skeleton/CategorySkeleton.tsx'
-import { CategoryCard } from '@/widgets/top-categories'
 
 import styles from './styles.module.scss'
 

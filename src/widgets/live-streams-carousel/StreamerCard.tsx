@@ -1,8 +1,10 @@
 import type { StreamerInfoByLoginResponse } from '@/shared/api/twitch/types.ts'
+import defaultBg from '@/shared/assets/images/defaultBackground.png'
+import { formatYear } from '@/shared/lib/format/date.ts'
+import { formatViewers } from '@/shared/lib/format/viewers.ts'
+import { Button } from '@/shared/ui/button'
 
 import styles from './styles.module.scss'
-import { Button } from '@/shared/ui/button'
-import { useMemo } from 'react'
 
 type StreamerCardProps = {
 	streamerInfo?: StreamerInfoByLoginResponse
@@ -11,25 +13,12 @@ type StreamerCardProps = {
 
 export const StreamerCard = ({ streamerInfo, currentUserViewers }: StreamerCardProps) => {
 	const streamer = streamerInfo?.data[0]
-
-	// Считаем количество зрителей, чтобы выводилось итоговая запись по типу "32,5К зрителей"
-	const viewers = useMemo(() => {
-		if (!currentUserViewers) return
-		return `${(currentUserViewers / 1000).toFixed(1)}К`
-	}, [currentUserViewers])
-
-	// Дата создания канала
-	const yearCreatedAt = useMemo(() => {
-		if (!streamer) return
-		return new Date(streamer.created_at).getFullYear()
-	}, [streamer])
-
-	//https://www.twitch.tv/dinablin
+	const background = streamer?.offline_image_url || defaultBg
 
 	return (
 		<div className={styles['streamer-card']}>
 			<img
-				src={streamer?.offline_image_url}
+				src={background}
 				className={styles['background-image']}
 				alt='Streamer background'
 			/>
@@ -42,8 +31,8 @@ export const StreamerCard = ({ streamerInfo, currentUserViewers }: StreamerCardP
 				</div>
 				<div className={styles['channel']}>
 					<span>{streamer?.login}</span>
-					<span>C {yearCreatedAt} года</span>
-					<span>{viewers} зрителей</span>
+					{streamer && <span>С {formatYear(streamer.created_at)} года</span>}
+					{currentUserViewers && <span>{formatViewers(currentUserViewers)} зрителей</span>}
 				</div>
 			</div>
 			<Button

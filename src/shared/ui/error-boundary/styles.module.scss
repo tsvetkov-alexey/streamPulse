@@ -1,0 +1,29 @@
+.wrapper {
+  text-align: center;
+  width: 50%;
+  margin: 200px auto;
+  padding: 100px 0;
+  border: 1px solid #a51eff;
+  border-radius: 20px;
+  box-shadow: 3px 4px 10px #a51eff;
+
+  h2, pre {
+    margin-bottom: 8px;
+    color: #fff;
+  }
+
+  pre {
+    font-size: 14px;
+  }
+
+  button {
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 8px;
+    margin-top: 8px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

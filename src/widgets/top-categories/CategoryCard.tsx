@@ -1,5 +1,5 @@
 import { cn } from '@/shared/lib/cn.ts'
-import { formatImage } from '@/shared/lib/formatters.ts'
+import { formatImage } from '@/shared/lib/format/image.ts'
 
 import styles from './styles.module.scss'
 
