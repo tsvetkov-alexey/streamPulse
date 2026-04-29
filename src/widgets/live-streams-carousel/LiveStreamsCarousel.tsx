@@ -1,12 +1,14 @@
 import { useMemo, useState } from 'react'
 
+import { skipToken } from '@reduxjs/toolkit/query'
+
+import { LiveStreamSlide } from '@/widgets/live-streams-carousel/LiveStreamSlide.tsx'
+
 import { useGetLiveStreamerQuery, useGetStreamerInfoByLoginQuery } from '@/shared/api/twitch/twitchApi.ts'
 import { BarsLoader } from '@/shared/ui/bars-loader'
 import { ErrorAlert } from '@/shared/ui/error-alert'
-import { LiveStreamSlide } from '@/widgets/live-streams-carousel/LiveStreamSlide.tsx'
 
 import styles from './styles.module.scss'
-import { skipToken } from '@reduxjs/toolkit/query'
 
 export const LiveStreamsCarousel = () => {
 	const [cursorStack, setCursorStack] = useState<string[]>([])

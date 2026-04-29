@@ -27,7 +27,6 @@ export const Button = ({ children, className, onClick, isLoading, disabled, href
 			</a>
 		)
 	}
-
 	return (
 		<button
 			className={cn(styles.button, isLoading && styles.loading, className)}

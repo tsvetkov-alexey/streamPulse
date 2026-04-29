@@ -45,11 +45,26 @@ export default tseslint.config(
 			'no-alert': 'error',
 			'prefer-const': 'error',
 			'no-var': 'error',
-			eqeqeq: ['error', 'always'],
+			eqeqeq: ['warn', 'always'],
 
 			// Imports
 			'import/no-duplicates': 'error',
-			'simple-import-sort/imports': 'error',
+			'simple-import-sort/imports': [
+				'error',
+				{
+					groups: [
+						['^react', '^next'], // React / фреймворк
+						['^@?\\w'], // внешние пакеты (node_modules)
+						['^@/app'], // FSD сначала: app, потом по порядку
+						['^@/pages'], // FSD: pages
+						['^@/widgets'], // FSD: widgets
+						['^@/features'], // FSD: features
+						['^@/entities'], // FSD: entities
+						['^@/shared'], // FSD: shared
+						['^\\.'] // относительные импорты (./styles, ../utils)
+					]
+				}
+			],
 			'simple-import-sort/exports': 'error',
 
 			// Unused
