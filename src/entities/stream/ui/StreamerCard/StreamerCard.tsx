@@ -4,7 +4,7 @@ import { formatYear } from '@/shared/lib/format/date.ts'
 import { formatViewers } from '@/shared/lib/format/viewers.ts'
 import { Button } from '@/shared/ui/button'
 
-import styles from './styles.module.scss'
+import styles from './StreamerCard.module.scss'
 
 type StreamerCardProps = {
 	streamerInfo?: StreamerInfoByLoginResponse

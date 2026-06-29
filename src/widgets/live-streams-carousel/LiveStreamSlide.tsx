@@ -1,5 +1,6 @@
-import { StreamerCard } from '@/widgets/live-streams-carousel/StreamerCard.tsx'
 import { StreamPlayer } from '@/widgets/live-streams-carousel/StreamPlayer.tsx'
+
+import { StreamerCard } from '@/entities/stream/ui/StreamerCard'
 
 import type { StreamerInfoByLoginResponse } from '@/shared/api/twitch/types.ts'
 
