@@ -35,6 +35,7 @@
 .streamer-card {
   min-height: 480px;
   width: 38%;
+  max-width: 600px;
   background: var(--card-bg);
   border-radius: 32px;
   color: var(--font-primary-color);
