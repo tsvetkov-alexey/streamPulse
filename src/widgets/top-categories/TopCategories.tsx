@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
 
-import { CategoryCard } from '@/widgets/top-categories'
-
 import type { Category } from '@/entities/category/model/types.ts'
+import { CategoryCard } from '@/entities/category/ui/CategoryCard'
 
 import { useGetTopCategoriesQuery } from '@/shared/api/twitch/twitchApi.ts'
 import Fire from '@/shared/assets/images/fire.png'

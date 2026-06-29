@@ -1,7 +1,7 @@
 import { cn } from '@/shared/lib/cn.ts'
 import { formatImage } from '@/shared/lib/format/image.ts'
 
-import styles from './styles.module.scss'
+import styles from '../../../../widgets/top-categories/styles.module.scss'
 
 interface CategoryCardProps {
 	categoryName: string
