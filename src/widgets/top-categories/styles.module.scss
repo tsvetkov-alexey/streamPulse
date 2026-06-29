@@ -4,10 +4,10 @@
   .category-title {
     display: flex;
     align-items: center;
+    gap: 6px;
 
-    h3 {
+    h2 {
       color: var(--font-primary-color);
-      margin-right: 4px;
     }
   }
 

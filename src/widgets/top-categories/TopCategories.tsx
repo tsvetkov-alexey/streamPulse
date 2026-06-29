@@ -43,7 +43,7 @@ export const TopCategories = () => {
 	return (
 		<div className={styles.categories}>
 			<div className={cn(styles['category-title'])}>
-				<h3>Категории в топе</h3>
+				<h2>Категории в топе</h2>
 				<img
 					src={Fire}
 					alt='fire'
