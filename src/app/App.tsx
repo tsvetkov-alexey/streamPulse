@@ -1,18 +1,9 @@
-import { Home } from '@/pages/home'
-
-import { Header } from '@/widgets/header'
+import { AppRouter } from '@/app/providers/router'
 
 import './styles/index.scss'
-import { Footer } from '@/widgets/footer'
 
 function App() {
-	return (
-		<>
-			<Header />
-			<Home />
-			<Footer />
-		</>
-	)
+	return <AppRouter />
 }
 
 export default App
