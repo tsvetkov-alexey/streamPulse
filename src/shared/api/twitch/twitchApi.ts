@@ -11,7 +11,7 @@ export const twitchApi = baseApi.injectEndpoints({
 	endpoints: build => ({
 		getTopCategories: build.query<TopCategoriesResponse, CursorArgs | void>({
 			query: args => ({
-				url: 'games/top',
+				url: '/games/top',
 				params: {
 					first: args?.first,
 					after: args?.after
@@ -20,7 +20,7 @@ export const twitchApi = baseApi.injectEndpoints({
 		}),
 		getLiveStreamer: build.query<LiveStreamerResponse, CursorArgs | void>({
 			query: args => ({
-				url: 'streams',
+				url: '/streams',
 				params: {
 					first: args?.first,
 					after: args?.after
@@ -29,7 +29,7 @@ export const twitchApi = baseApi.injectEndpoints({
 		}),
 		getStreamerInfoByLogin: build.query<StreamerInfoByLoginResponse, StreamerInfoByLoginArgs>({
 			query: ({ login }) => ({
-				url: 'users',
+				url: '/users',
 				params: { login }
 			})
 		})
