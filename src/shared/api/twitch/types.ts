@@ -21,7 +21,7 @@ export type LiveStreamerResponse = {
 }
 
 export type StreamerInfoByLoginArgs = {
-	login: string
+	login?: string
 }
 
 type StreamerByLogin = {

@@ -13,12 +13,10 @@ export const baseApi = createApi({
 
 		// Временные заголовки для Twitch
 		prepareHeaders: headers => {
-			// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-			headers.set('Client-ID', import.meta.env.VITE_TWITCH_CLIENT_ID)
+			const clientId = import.meta.env.VITE_TWITCH_CLIENT_ID as string
+			headers.set('Client-ID', clientId)
 
-			// Временный токен (заменить потом на реальный)
-			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-			const token = import.meta.env.VITE_TWITCH_ACCESS_TOKEN
+			const token = sessionStorage.getItem('twitch_access_token')
 			if (token) {
 				headers.set('Authorization', `Bearer ${token}`)
 			}
