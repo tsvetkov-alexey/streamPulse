@@ -22,7 +22,7 @@ export const SignIn = () => {
 		<div className={styles['auth-block']}>
 			<div className={styles['auth-block_wrapper']}>
 				<h2>Protected authentication with Twitch</h2>
-				<Button onClick={handleConnect}>Connect with Twitch</Button>
+				<Button onClick={handleConnect}>Log in with Twitch</Button>
 			</div>
 		</div>
 	)

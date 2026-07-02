@@ -1,5 +1,7 @@
 import { baseApi } from '@/shared/api/base/baseApi.ts'
 import type {
+	ClipArgs,
+	ClipResponse,
 	CursorArgs,
 	LiveStreamerResponse,
 	StreamerInfoByLoginArgs,
@@ -32,8 +34,19 @@ export const twitchApi = baseApi.injectEndpoints({
 				url: '/users',
 				params: { login }
 			})
+		}),
+		getClipInfoByGameId: build.query<ClipResponse, ClipArgs>({
+			query: ({ gameId, first }) => ({
+				url: '/clips',
+				params: { gameId, first }
+			})
 		})
 	})
 })
 
-export const { useGetTopCategoriesQuery, useGetLiveStreamerQuery, useGetStreamerInfoByLoginQuery } = twitchApi
+export const {
+	useGetTopCategoriesQuery,
+	useGetLiveStreamerQuery,
+	useGetStreamerInfoByLoginQuery,
+	useGetClipInfoByGameIdQuery
+} = twitchApi
