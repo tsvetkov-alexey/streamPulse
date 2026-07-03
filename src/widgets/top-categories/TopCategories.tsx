@@ -5,7 +5,6 @@ import { CategoryCard } from '@/entities/category/ui/CategoryCard'
 
 import { useGetTopCategoriesQuery } from '@/shared/api/twitch/twitchApi.ts'
 import Fire from '@/shared/assets/images/fire.png'
-import { cn } from '@/shared/lib/cn.ts'
 import { Button } from '@/shared/ui/button'
 import { CategorySkeleton } from '@/shared/ui/skeleton/CategorySkeleton.tsx'
 
@@ -17,6 +16,9 @@ export const TopCategories = () => {
 	// Стейт для cursor-пагинации
 	const [cursor, setCursor] = useState<string | null>(null)
 
+	const userWidth = window.innerWidth
+	const gamesQuantity = userWidth > 1700 ? 5 : 4
+
 	const {
 		data: categories,
 		isFetching: isCategoriesFetching,
@@ -24,10 +26,10 @@ export const TopCategories = () => {
 	} = useGetTopCategoriesQuery(
 		cursor
 			? {
-					first: 5,
+					first: gamesQuantity,
 					after: cursor
 				}
-			: { first: 5 }
+			: { first: gamesQuantity }
 	)
 
 	useEffect(() => {
@@ -41,7 +43,7 @@ export const TopCategories = () => {
 
 	return (
 		<div className={styles.categories}>
-			<div className={cn(styles['category-title'])}>
+			<div className={styles['category-title']}>
 				<h2>Категории в топе</h2>
 				<img
 					src={Fire}
@@ -49,7 +51,7 @@ export const TopCategories = () => {
 					width='24px'
 				/>
 			</div>
-			<div className={cn(styles['category-cards'])}>
+			<div className={styles['category-cards']}>
 				{isCategoriesLoading
 					? Array.from({ length: 5 }).map((_, idx) => {
 							return <CategorySkeleton key={idx} />
@@ -65,7 +67,7 @@ export const TopCategories = () => {
 						})}
 			</div>
 			<Button
-				className={cn(styles['more-button'])}
+				className={styles['more-button']}
 				isLoading={isCategoriesFetching}
 				onClick={() => {
 					if (categories) {

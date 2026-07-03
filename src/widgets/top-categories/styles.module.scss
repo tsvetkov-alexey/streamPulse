@@ -18,11 +18,14 @@
     gap: 22px;
     flex-wrap: wrap;
     margin-top: 20px;
+
+    img {
+      filter: contrast(1.2) saturate(1.18) brightness(0.95);
+    }
   }
 
   .more-button {
-    display: flex;
-    justify-self: center;
-    margin-top: 32px;
+    width: 150px;
+    margin: 32px auto;
   }
 }

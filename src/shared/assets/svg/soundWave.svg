@@ -1,0 +1,15 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+            d="M2 17H7L10 8L14 24L18 4L22 24L25 16H30"
+            stroke="url(#soundWaveGradient)"
+            stroke-width="2.1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+    />
+    <defs>
+        <linearGradient id="soundWaveGradient" x1="2" y1="16" x2="30" y2="16" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FF2FAE" />
+            <stop offset="1" stop-color="#9B2CFF" />
+        </linearGradient>
+    </defs>
+</svg>

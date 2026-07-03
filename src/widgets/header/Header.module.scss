@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 28px 5%;
+  padding: 24px 5%;
   border-bottom: 1px solid #4E4E4E;
 
   span, h2 {
@@ -11,6 +11,12 @@
     &:hover {
       cursor: pointer;
     }
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 
   .title {

@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router'
 
 import { useGetStreamerInfoByLoginQuery } from '@/shared/api/twitch/twitchApi.ts'
+import Logo from '@/shared/assets/svg/soundWave.svg'
 import { BarsLoader } from '@/shared/ui/bars-loader'
 
 import styles from './Header.module.scss'
@@ -16,7 +17,13 @@ export const Header = () => {
 
 	return (
 		<div className={styles.header}>
-			<h2 className={styles.title}>StreamPulse</h2>
+			<div className={styles.logo}>
+				<img
+					src={Logo}
+					alt='StreamPulse logo'
+				/>
+				<h2 className={styles.title}>StreamPulse</h2>
+			</div>
 			<div className={styles.profile}>
 				{isUserInfoLoading ? (
 					<BarsLoader size={36} />

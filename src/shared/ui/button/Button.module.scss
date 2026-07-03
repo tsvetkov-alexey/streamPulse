@@ -1,8 +1,9 @@
 .button {
   position: relative;
   background: var(--button-primary-color);
+  display: block;
   color: var(--font-primary-color);
-  padding: 10px 38px;
+  padding: 10px 0;
   font-size: 16px;
   border: 1px solid #B9A4A4;
   border-radius: 12px;
