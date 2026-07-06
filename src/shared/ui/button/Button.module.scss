@@ -77,3 +77,32 @@
     background-position: 150% 50%;
   }
 }
+
+.content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.contentRight {
+  flex-direction: row-reverse;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  flex-shrink: 0;
+}
+
+@keyframes borderRun {
+  0% {
+    background-position: 0 50%;
+  }
+
+  100% {
+    background-position: 150% 50%;
+  }
+}

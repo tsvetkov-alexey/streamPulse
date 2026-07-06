@@ -1,5 +1,6 @@
 import type { StreamerInfoByLoginResponse } from '@/shared/api/twitch/types.ts'
 import defaultBg from '@/shared/assets/images/defaultBackground.png'
+import TwitchIcon from '@/shared/assets/svg/twitchIcon.svg'
 import { formatYear } from '@/shared/lib/format/date.ts'
 import { formatViewers } from '@/shared/lib/format/viewers.ts'
 import { Button } from '@/shared/ui/button'
@@ -14,6 +15,7 @@ type StreamerCardProps = {
 export const StreamerCard = ({ streamerInfo, currentUserViewers }: StreamerCardProps) => {
 	const streamer = streamerInfo?.data[0]
 	const background = streamer?.offline_image_url || defaultBg
+	const avatar = streamer?.profile_image_url || defaultBg
 
 	return (
 		<div className={styles['streamer-card']}>
@@ -25,7 +27,7 @@ export const StreamerCard = ({ streamerInfo, currentUserViewers }: StreamerCardP
 			<div className={styles['main-info']}>
 				<div className={styles['profile-image']}>
 					<img
-						src={streamer?.profile_image_url}
+						src={avatar}
 						alt='avatar'
 					/>
 				</div>
@@ -39,6 +41,13 @@ export const StreamerCard = ({ streamerInfo, currentUserViewers }: StreamerCardP
 				href={`https://www.twitch.tv/${streamer?.login}`}
 				target='_blank'
 				className={styles['watch-btn']}
+				icon={
+					<img
+						src={TwitchIcon}
+						style={{ marginTop: 2 }}
+						alt='Twitch icon'
+					/>
+				}
 			>
 				Смотреть на Twitch
 			</Button>

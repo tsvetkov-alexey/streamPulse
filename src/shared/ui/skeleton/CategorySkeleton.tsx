@@ -1,15 +1,18 @@
 import type { ComponentProps } from 'react'
 import ContentLoader from 'react-content-loader'
 
-type CategorySkeletonProps = ComponentProps<typeof ContentLoader>
+type CategorySkeletonProps = Omit<ComponentProps<typeof ContentLoader>, 'width' | 'height' | 'viewBox'> & {
+	width?: number
+	height?: number
+}
 
-export const CategorySkeleton = (props: CategorySkeletonProps) => {
+export const CategorySkeleton = ({ width = 340, height = 380, ...props }: CategorySkeletonProps) => {
 	return (
 		<ContentLoader
 			speed={2}
-			width={220}
-			height={380}
-			viewBox='0 0 220 380'
+			width={width}
+			height={height}
+			viewBox={`0 0 ${width} ${height}`}
 			backgroundColor='#dfdede'
 			foregroundColor='#ecebeb'
 			{...props}
@@ -19,8 +22,8 @@ export const CategorySkeleton = (props: CategorySkeletonProps) => {
 				y='0'
 				rx='20'
 				ry='20'
-				width='220'
-				height='380'
+				width={width}
+				height={height}
 			/>
 		</ContentLoader>
 	)

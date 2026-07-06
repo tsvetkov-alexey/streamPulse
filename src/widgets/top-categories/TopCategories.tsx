@@ -5,10 +5,15 @@ import { CategoryCard } from '@/entities/category/ui/CategoryCard'
 
 import { useGetTopCategoriesQuery } from '@/shared/api/twitch/twitchApi.ts'
 import Fire from '@/shared/assets/images/fire.png'
+import { useWindowWidth } from '@/shared/lib/browser/useWindowWidth.ts'
 import { Button } from '@/shared/ui/button'
 import { CategorySkeleton } from '@/shared/ui/skeleton/CategorySkeleton.tsx'
 
 import styles from './styles.module.scss'
+
+const CATEGORY_BREAKPOINT = 1700
+const CATEGORY_CARD_WIDTH = 300
+const CATEGORY_CARD_HEIGHT = 400
 
 export const TopCategories = () => {
 	const [items, setItems] = useState<Category[]>([])
@@ -16,8 +21,8 @@ export const TopCategories = () => {
 	// Стейт для cursor-пагинации
 	const [cursor, setCursor] = useState<string | null>(null)
 
-	const userWidth = window.innerWidth
-	const gamesQuantity = userWidth > 1700 ? 5 : 4
+	const userWidth = useWindowWidth()
+	const gamesQuantity = userWidth > CATEGORY_BREAKPOINT ? 5 : 4
 
 	const {
 		data: categories,
@@ -41,6 +46,16 @@ export const TopCategories = () => {
 		})
 	}, [categories])
 
+	const skeletons = Array.from({ length: gamesQuantity }).map((_, idx) => {
+		return (
+			<CategorySkeleton
+				key={idx}
+				width={CATEGORY_CARD_WIDTH}
+				height={CATEGORY_CARD_HEIGHT}
+			/>
+		)
+	})
+
 	return (
 		<div className={styles.categories}>
 			<div className={styles['category-title']}>
@@ -53,9 +68,7 @@ export const TopCategories = () => {
 			</div>
 			<div className={styles['category-cards']}>
 				{isCategoriesLoading
-					? Array.from({ length: 5 }).map((_, idx) => {
-							return <CategorySkeleton key={idx} />
-						})
+					? skeletons
 					: items.map(el => {
 							return (
 								<CategoryCard

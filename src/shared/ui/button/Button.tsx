@@ -4,6 +4,8 @@ import { cn } from '@/shared/lib/cn.ts'
 
 import styles from './Button.module.scss'
 
+type IconPosition = 'left' | 'right'
+
 interface ButtonProps {
 	children: React.ReactNode
 	className?: string
@@ -12,9 +14,28 @@ interface ButtonProps {
 	disabled?: boolean
 	href?: string
 	target?: string
+	icon?: React.ReactNode
+	iconPosition?: IconPosition
 }
 
-export const Button = ({ children, className, onClick, isLoading, disabled, href, target }: ButtonProps) => {
+export const Button = ({
+	children,
+	className,
+	onClick,
+	isLoading,
+	disabled,
+	href,
+	target,
+	icon,
+	iconPosition = 'left'
+}: ButtonProps) => {
+	const content = (
+		<span className={cn(styles.content, iconPosition === 'right' && styles.contentRight)}>
+			{icon && <span className={styles.icon}>{icon}</span>}
+			<span>{children}</span>
+		</span>
+	)
+
 	if (href) {
 		return (
 			<a
@@ -23,7 +44,7 @@ export const Button = ({ children, className, onClick, isLoading, disabled, href
 				rel='noopener noreferrer'
 				className={cn(styles.button, isLoading && styles.loading, className)}
 			>
-				{children}
+				{content}
 			</a>
 		)
 	}
@@ -33,7 +54,7 @@ export const Button = ({ children, className, onClick, isLoading, disabled, href
 			onClick={onClick}
 			disabled={disabled || isLoading}
 		>
-			{children}
+			{content}
 		</button>
 	)
 }

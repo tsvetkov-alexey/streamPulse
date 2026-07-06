@@ -7,7 +7,7 @@ import { BarsLoader } from '@/shared/ui/bars-loader'
 import styles from './Header.module.scss'
 
 export const Header = () => {
-	const { data: userInfo, isLoading: isUserInfoLoading, isError: isUserInfoError } = useGetStreamerInfoByLoginQuery({})
+	const { data: userInfo, isLoading: isUserInfoLoading } = useGetStreamerInfoByLoginQuery({})
 	const navigate = useNavigate()
 
 	const handleLogout = () => {

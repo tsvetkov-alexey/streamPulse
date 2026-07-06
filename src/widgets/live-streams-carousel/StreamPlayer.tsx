@@ -9,8 +9,7 @@ export const StreamPlayer = ({ currentUserLogin }: StreamPlayerProps) => {
 	return (
 		<iframe
 			// src={`https://player.twitch.tv/?channel=${currentUserLogin}&parent=${parent}&muted=true`}
-			width='46%'
-			height='380px'
+			height='420px'
 			allowFullScreen
 		/>
 	)

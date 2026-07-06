@@ -11,14 +11,6 @@ export const Home = () => {
 		<div className={styles.wrapper}>
 			<HeroBanner />
 			<TopCategories />
-			<div className={styles.title}>
-				<h2>Популярно онлайн</h2>
-				<img
-					src={Live}
-					alt='live'
-					width='80px'
-				/>
-			</div>
 			<section className={styles.section}>
 				<div className={styles.title}>
 					<h2>Популярно онлайн</h2>
