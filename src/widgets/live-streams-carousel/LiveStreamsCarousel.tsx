@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 
 import { skipToken } from '@reduxjs/toolkit/query'
 
-import { useGetLiveStreamerQuery, useGetStreamerInfoByLoginQuery } from '@/shared/api/twitch/twitchApi.ts'
+import { useGetLiveStreamsQuery, useGetStreamerInfoByLoginQuery } from '@/shared/api/twitch/twitchApi.ts'
 import { BarsLoader } from '@/shared/ui/bars-loader'
 import { ErrorAlert } from '@/shared/ui/error-alert'
 
@@ -17,7 +17,7 @@ export const LiveStreamsCarousel = () => {
 		data: streamData,
 		isFetching: isStreamDataFetching,
 		isError: isStreamDataError
-	} = useGetLiveStreamerQuery(currentCursor ? { first: 1, after: currentCursor } : { first: 1 })
+	} = useGetLiveStreamsQuery(currentCursor ? { first: 1, after: currentCursor } : { first: 1 })
 
 	const currentUserLogin = useMemo(() => {
 		if (!streamData) return

@@ -2,7 +2,7 @@ import type { StreamerInfoByLoginResponse } from '@/shared/api/twitch/types.ts'
 import defaultBg from '@/shared/assets/images/defaultBackground.png'
 import TwitchIcon from '@/shared/assets/svg/twitchIcon.svg'
 import { formatYear } from '@/shared/lib/format/date.ts'
-import { formatViewers } from '@/shared/lib/format/viewers.ts'
+import { formatStreamerViewers } from '@/shared/lib/format/viewers.ts'
 import { Button } from '@/shared/ui/button'
 
 import styles from './StreamerCard.module.scss'
@@ -34,7 +34,7 @@ export const StreamerCard = ({ streamerInfo, currentUserViewers }: StreamerCardP
 				<div className={styles['channel']}>
 					<span>{streamer?.login}</span>
 					{streamer && <span>С {formatYear(streamer.created_at)} года</span>}
-					{currentUserViewers && <span>{formatViewers(currentUserViewers)} зрителей</span>}
+					{currentUserViewers && <span>{formatStreamerViewers(currentUserViewers)} зрителей</span>}
 				</div>
 			</div>
 			<Button

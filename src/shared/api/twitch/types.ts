@@ -6,6 +6,12 @@ export type CursorArgs = {
 	after?: string
 }
 
+export type StreamArgs = {
+	first?: number
+	after?: string
+	gameId?: string
+}
+
 type Pagination = {
 	cursor: string
 }

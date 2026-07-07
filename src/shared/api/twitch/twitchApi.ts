@@ -4,6 +4,7 @@ import type {
 	ClipResponse,
 	CursorArgs,
 	LiveStreamerResponse,
+	StreamArgs,
 	StreamerInfoByLoginArgs,
 	StreamerInfoByLoginResponse,
 	TopCategoriesResponse
@@ -20,12 +21,13 @@ export const twitchApi = baseApi.injectEndpoints({
 				}
 			})
 		}),
-		getLiveStreamer: build.query<LiveStreamerResponse, CursorArgs | void>({
+		getLiveStreams: build.query<LiveStreamerResponse, StreamArgs | void>({
 			query: args => ({
 				url: '/streams',
 				params: {
 					first: args?.first,
-					after: args?.after
+					after: args?.after,
+					game_id: args?.gameId
 				}
 			})
 		}),
@@ -46,7 +48,7 @@ export const twitchApi = baseApi.injectEndpoints({
 
 export const {
 	useGetTopCategoriesQuery,
-	useGetLiveStreamerQuery,
+	useGetLiveStreamsQuery,
 	useGetStreamerInfoByLoginQuery,
 	useGetClipInfoByGameIdQuery
 } = twitchApi

@@ -73,6 +73,7 @@ export const TopCategories = () => {
 							return (
 								<CategoryCard
 									key={el.id}
+									gameId={el.id}
 									categoryName={el.name}
 									imageUrl={el.box_art_url}
 								/>
