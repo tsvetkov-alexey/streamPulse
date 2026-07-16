@@ -1,0 +1,108 @@
+<svg
+        width="48"
+        height="48"
+        viewBox="0 0 48 48"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+>
+    <defs>
+        <linearGradient
+                id="clapperGradient"
+                x1="10"
+                y1="7"
+                x2="38"
+                y2="41"
+                gradientUnits="userSpaceOnUse"
+        >
+            <stop stop-color="#F5E9FF" />
+            <stop offset="0.45" stop-color="#B853E8" />
+            <stop offset="1" stop-color="#6B168F" />
+        </linearGradient>
+
+        <filter
+                id="glow"
+                x="-40%"
+                y="-40%"
+                width="180%"
+                height="180%"
+                color-interpolation-filters="sRGB"
+        >
+            <feGaussianBlur stdDeviation="1.4" result="blur" />
+            <feColorMatrix
+                    in="blur"
+                    type="matrix"
+                    values="
+          0 0 0 0 0.55
+          0 0 0 0 0.12
+          0 0 0 0 0.85
+          0 0 0 0.7 0
+        "
+            />
+            <feMerge>
+                <feMergeNode />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+    </defs>
+
+    <g filter="url(#glow)">
+        <path
+                d="M10 17.5H38V38C38 39.6569 36.6569 41 35 41H13C11.3431 41 10 39.6569 10 38V17.5Z"
+                fill="url(#clapperGradient)"
+        />
+
+        <path
+                d="M10 17.5H38V22H10V17.5Z"
+                fill="#A63ED0"
+        />
+
+        <path
+                d="M12 11.5L36.5 6L38 12.5L13.5 18L12 11.5Z"
+                fill="url(#clapperGradient)"
+        />
+
+        <path
+                d="M13.2 11.25L18.4 10.08L22.3 14.35L17.1 15.52L13.2 11.25Z"
+                fill="#FFF7FF"
+        />
+
+        <path
+                d="M23.15 9.02L28.4 7.84L32.25 12.12L27.05 13.28L23.15 9.02Z"
+                fill="#FFF7FF"
+        />
+
+        <path
+                d="M33.05 6.8L36.5 6L37.6 10.7L33.05 6.8Z"
+                fill="#FFF7FF"
+        />
+
+        <path
+                d="M10 17.5H38"
+                stroke="#E9C7FA"
+                stroke-width="1.4"
+                stroke-linecap="round"
+        />
+
+        <path
+                d="M15 27H33"
+                stroke="#C26CE9"
+                stroke-width="2.2"
+                stroke-linecap="round"
+        />
+
+        <path
+                d="M15 32H33"
+                stroke="#C26CE9"
+                stroke-width="2.2"
+                stroke-linecap="round"
+        />
+
+        <path
+                d="M15 37H28"
+                stroke="#C26CE9"
+                stroke-width="2.2"
+                stroke-linecap="round"
+        />
+    </g>
+</svg>

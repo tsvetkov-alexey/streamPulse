@@ -2,6 +2,7 @@ import { LiveStreamsCarousel } from '@/widgets/live-streams-carousel'
 import { TopCategories } from '@/widgets/top-categories'
 
 import Live from '@/shared/assets/images/live.png'
+import Clip from '@/shared/assets/svg/clip.svg'
 import { HeroBanner } from '@/shared/ui/hero-banner'
 
 import styles from './Home.module.scss'
@@ -21,6 +22,17 @@ export const Home = () => {
 					/>
 				</div>
 				<LiveStreamsCarousel />
+			</section>
+			<section className={styles.section}>
+				<div className={styles.title}>
+					<h2>Топовые клипы</h2>
+					<img
+						src={Clip}
+						alt='clip'
+						width='36px'
+						className={styles['clip-icon']}
+					/>
+				</div>
 			</section>
 		</div>
 	)

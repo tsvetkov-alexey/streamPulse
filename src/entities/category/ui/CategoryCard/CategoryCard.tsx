@@ -23,7 +23,7 @@ export const CategoryCard = ({ categoryName, imageUrl, gameId }: CategoryCardPro
 			<img
 				src={imageSrc}
 				className={styles['category-block__image']}
-				alt='category'
+				alt={categoryName}
 				width={280}
 				height={340}
 			/>

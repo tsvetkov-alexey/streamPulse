@@ -27,5 +27,5 @@ export const TwitchCallback = () => {
 		auth()
 	}, [navigate])
 
-	return <div>Авторизация через Twitch</div>
+	return <div style={{ background: 'red' }}>Авторизация через Twitch</div>
 }
