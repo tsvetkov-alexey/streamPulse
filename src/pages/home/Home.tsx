@@ -1,3 +1,4 @@
+import { TopClips } from '@/widgets/clips-carousel'
 import { LiveStreamsCarousel } from '@/widgets/live-streams-carousel'
 import { TopCategories } from '@/widgets/top-categories'
 
@@ -33,6 +34,7 @@ export const Home = () => {
 						className={styles['clip-icon']}
 					/>
 				</div>
+				<TopClips />
 			</section>
 		</div>
 	)

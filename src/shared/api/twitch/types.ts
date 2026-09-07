@@ -48,11 +48,11 @@ export type StreamerInfoByLoginResponse = {
 }
 
 export type ClipArgs = {
-	gameId: number
+	gameId: string
 	first: number
 }
 
-export type clipByGameId = {
+export type ClipByGameId = {
 	id: string
 	url: string
 	embed_url: string
@@ -73,5 +73,5 @@ export type clipByGameId = {
 }
 
 export type ClipResponse = {
-	data: clipByGameId[]
+	data: ClipByGameId[]
 }

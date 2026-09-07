@@ -1,0 +1,80 @@
+.info-block {
+  width: 40%;
+  max-width: 560px;
+  background: var(--card-bg);
+  border-radius: 16px;
+  border: 1px solid #775477;
+  padding: 28px 24px;
+
+  h3, span {
+    color: var(--font-primary-color);
+  }
+
+  h3 {
+    font-size: 30px;
+  }
+
+  .statistics {
+    &__info {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-top: 1px solid #775477;
+      padding: 10px 12px;
+
+      &:last-child {
+        border-bottom: 1px solid #775477;
+      }
+
+      span {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .authors {
+    background: #2F1D33;
+    margin: 16px 0;
+    border: 1px solid #775477;
+    border-radius: 16px;
+    padding: 2px 12px;
+
+    .streamer {
+      border-bottom: 1px solid #775477;
+    }
+
+    .streamer,
+    .clip-creator {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+
+
+      .avatar {
+        display: flex;
+        gap: 14px;
+      }
+
+      .channel-name {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+      }
+
+      img {
+        width: 50px;
+        border-radius: 50%;
+      }
+
+      button {
+        background: inherit;
+        border: 0;
+        color: #fff;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

@@ -1,10 +1,10 @@
 import { useGetLiveStreamsQuery } from '@/shared/api/twitch/twitchApi.ts'
 import Viewers from '@/shared/assets/svg/viewers.svg'
 import { formatImage } from '@/shared/lib/format/image.ts'
-
-import styles from './CategoryCard.module.scss'
 import { formatViewers } from '@/shared/lib/format/viewers.ts'
 import { BarsLoader } from '@/shared/ui/bars-loader'
+
+import styles from './CategoryCard.module.scss'
 
 interface CategoryCardProps {
 	categoryName: string

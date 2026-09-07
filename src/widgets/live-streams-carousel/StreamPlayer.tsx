@@ -22,11 +22,11 @@ export const StreamPlayer = ({ currentUserLogin }: StreamPlayerProps) => {
 
 	return (
 		<iframe
-			// src={src}
+			src={src}
 			width='100%'
 			height='420'
 			allowFullScreen
-			title={`${currentUserLogin} Twitch stream`}
+			title={`${currentUserLogin} twitch stream`}
 		/>
 	)
 }

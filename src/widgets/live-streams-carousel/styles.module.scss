@@ -4,6 +4,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  iframe {
+    width: calc(100% - 690px);
+    border-radius: 32px;
+  }
 }
 
 .left-arrow,
@@ -34,9 +39,4 @@
 .container {
   min-height: 420px;
   padding-top: 200px;
-}
-
-iframe {
-  width: calc(100% - 690px);
-  border-radius: 32px;
 }

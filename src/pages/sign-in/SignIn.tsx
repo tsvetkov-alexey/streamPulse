@@ -1,3 +1,4 @@
+import { env } from '@/shared/config/env.ts'
 import { Button } from '@/shared/ui/button'
 
 import styles from './SignIn.module.scss'
@@ -9,8 +10,8 @@ export const SignIn = () => {
 
 		const params = new URLSearchParams({
 			response_type: 'token',
-			client_id: import.meta.env.VITE_TWITCH_CLIENT_ID as string,
-			redirect_uri: 'http://localhost:3000/auth/twitch/callback',
+			client_id: env.twitchClientId,
+			redirect_uri: `${window.location.origin}/auth/twitch/callback`,
 			scope: 'user:read:email',
 			state
 		})

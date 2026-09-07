@@ -10,15 +10,9 @@ export const useWindowWidth = () => {
 	const [width, setWidth] = useState(getWindowWidth)
 
 	useEffect(() => {
-		const handleResize = () => {
-			setWidth(window.innerWidth)
-		}
-
+		const handleResize = () => setWidth(window.innerWidth)
 		window.addEventListener('resize', handleResize)
-
-		return () => {
-			window.removeEventListener('resize', handleResize)
-		}
+		return () => window.removeEventListener('resize', handleResize)
 	}, [])
 
 	return width

@@ -4,6 +4,7 @@ import { z } from 'zod'
 const envSchema = z.object({
     VITE_APP_PORT: z.coerce.number().default(3000),
     VITE_APP_BACKEND_API: z.string(),
+    VITE_TWITCH_CLIENT_ID: z.string(),
 })
 
 // парсим import.meta.env
@@ -13,4 +14,5 @@ const parsedEnv = envSchema.parse(import.meta.env)
 export const env = {
     appPort: parsedEnv.VITE_APP_PORT,
     backendApi: parsedEnv.VITE_APP_BACKEND_API,
+    twitchClientId: parsedEnv.VITE_TWITCH_CLIENT_ID,
 } as const

@@ -40,7 +40,7 @@ export const twitchApi = baseApi.injectEndpoints({
 		getClipInfoByGameId: build.query<ClipResponse, ClipArgs>({
 			query: ({ gameId, first }) => ({
 				url: '/clips',
-				params: { gameId, first }
+				params: { game_id: gameId, first }
 			})
 		})
 	})

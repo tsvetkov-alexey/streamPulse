@@ -17,6 +17,8 @@ export const StreamerCard = ({ streamerInfo, currentUserViewers }: StreamerCardP
 	const background = streamer?.offline_image_url || defaultBg
 	const avatar = streamer?.profile_image_url || defaultBg
 
+	console.log('background', background)
+
 	return (
 		<div className={styles['streamer-card']}>
 			<img

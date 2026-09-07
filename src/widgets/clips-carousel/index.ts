@@ -1,1 +1,1 @@
-export { ClipsCarousel } from './ClipsCarousel.tsx'
+export { TopClips } from './TopClips.tsx'

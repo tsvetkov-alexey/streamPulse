@@ -1,13 +1,29 @@
-import type { ClipResponse } from '@/shared/api/twitch/types.ts'
-import { cn } from '@/shared/lib/cn.ts'
+import { getTwitchClipEmbedUrl } from '@/entities/clip/lib/getTwitchClipEmbedUrl.ts'
 
-import styles from './ClipDetails.module.scss'
+import type { ClipByGameId } from '@/shared/api/twitch/types.ts'
+
+import styles from './ClipPreview.module.scss'
 
 interface ClipPreviewProps {
-	clipInfo: ClipResponse
+	clipInfo?: ClipByGameId
 }
 
-// Большой блок-превью выбранного клипа (правая часть)
+// Большой блок-превью выбранного клипа (левая часть)
 export const ClipPreview = ({ clipInfo }: ClipPreviewProps) => {
-	return <div className={cn(styles['info-block'])}></div>
+	// if (!clipInfo) {
+	// 	return null
+	// }
+
+	return (
+		<div className={styles['clip-block']}>
+			<iframe
+				// src={getTwitchClipEmbedUrl(clipInfo.embed_url)}
+				// title={clipInfo.title}
+				width='100%'
+				height={420}
+				allow='autoplay; fullscreen'
+				allowFullScreen
+			/>
+		</div>
+	)
 }
