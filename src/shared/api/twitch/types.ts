@@ -28,6 +28,7 @@ export type LiveStreamerResponse = {
 
 export type StreamerInfoByLoginArgs = {
 	login?: string
+	id?: string
 }
 
 type StreamerByLogin = {
@@ -48,7 +49,7 @@ export type StreamerInfoByLoginResponse = {
 }
 
 export type ClipArgs = {
-	gameId: string
+	gameId: number
 	first: number
 }
 

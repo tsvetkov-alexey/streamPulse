@@ -1,30 +1,51 @@
-import type { ClipResponse } from '@/shared/api/twitch/types.ts'
+import { skipToken } from '@reduxjs/toolkit/query'
+
+import { useGetStreamerInfoByLoginQuery } from '@/shared/api/twitch/twitchApi.ts'
+import type { ClipByGameId } from '@/shared/api/twitch/types.ts'
+import defaultBg from '@/shared/assets/images/defaultBackground.png'
 import Calendar from '@/shared/assets/svg/calendar.svg'
 import Eye from '@/shared/assets/svg/eye.svg'
 import Gamepad from '@/shared/assets/svg/gamepad.svg'
 import Globe from '@/shared/assets/svg/globe.svg'
+import { formatDate } from '@/shared/lib/format/date.ts'
+import { formatViewers } from '@/shared/lib/format/viewers.ts'
 
 import styles from './ClipDetails.module.scss'
 
 interface ClipInfoProps {
-	clipInfo?: ClipResponse
+	clipInfo?: ClipByGameId
 }
 
 // Блок с подробной информацией по клипу (правая часть)
 export const ClipDetails = ({ clipInfo }: ClipInfoProps) => {
+	const {
+		data: streamerPhoto,
+		isFetching: isPhotoFetching,
+		isError: isPhotoError
+	} = useGetStreamerInfoByLoginQuery(clipInfo?.broadcaster_id ? { id: clipInfo.broadcaster_id } : skipToken)
+
+	const {
+		data: clipMakerPhoto,
+		isFetching: isClipMakerPhotoFetching,
+		isError: isClipMakerPhotoError
+	} = useGetStreamerInfoByLoginQuery(clipInfo?.creator_id ? { id: clipInfo.creator_id } : skipToken)
+
+	const streamerAvatar = streamerPhoto?.data[0]?.profile_image_url || defaultBg
+	const clipMakerAvatar = clipMakerPhoto?.data[0]?.profile_image_url || defaultBg
+
 	return (
 		<div className={styles['info-block']}>
-			<h3>Funny moment</h3>
+			<h3>{clipInfo?.title}</h3>
 			<div className={styles['authors']}>
 				<div className={styles['streamer']}>
 					<div className={styles['avatar']}>
 						<img
 							alt='avatar'
-							src='https://static-cdn.jtvnw.net/jtv_user_pictures/ef28ba12-c8ed-46d4-838b-a4c95ef5b469-profile_image-300x300.png'
+							src={streamerAvatar}
 						/>
 						<div className={styles['channel-name']}>
-							<span>Канал</span>
-							<span>Buster</span>
+							<span className={styles.secondary}>Канал</span>
+							<span>{clipInfo?.broadcaster_name}</span>
 						</div>
 					</div>
 					<button className={styles['right-arrow']}>{'>'}</button>
@@ -33,11 +54,11 @@ export const ClipDetails = ({ clipInfo }: ClipInfoProps) => {
 					<div className={styles['avatar']}>
 						<img
 							alt='avatar'
-							src='https://static-cdn.jtvnw.net/jtv_user_pictures/ef28ba12-c8ed-46d4-838b-a4c95ef5b469-profile_image-300x300.png'
+							src={clipMakerAvatar}
 						/>
 						<div className={styles['channel-name']}>
-							<span>Автор клипа</span>
-							<span>User19129</span>
+							<span className={styles.secondary}>Автор клипа</span>
+							<span>{clipInfo?.creator_name}</span>
 						</div>
 					</div>
 					<button className={styles['right-arrow']}>{'>'}</button>
@@ -50,7 +71,7 @@ export const ClipDetails = ({ clipInfo }: ClipInfoProps) => {
 						alt='view'
 						width={20}
 					/>
-					<span>5,8 млн. просмотров</span>
+					<span>{formatViewers(clipInfo?.view_count ?? 0)} просмотров</span>
 				</div>
 				<div className={styles['statistics__info']}>
 					<img
@@ -58,7 +79,7 @@ export const ClipDetails = ({ clipInfo }: ClipInfoProps) => {
 						alt='calendar'
 						width={20}
 					/>
-					<span>10 дек. 2020 года</span>
+					<span>{formatDate(clipInfo?.created_at ?? '')}</span>
 				</div>
 				<div className={styles['statistics__info']}>
 					<img
@@ -66,7 +87,7 @@ export const ClipDetails = ({ clipInfo }: ClipInfoProps) => {
 						alt='language'
 						width={20}
 					/>
-					<span>RU</span>
+					<span>{clipInfo?.language ?? 'Language is not defined'}</span>
 				</div>
 				<div className={styles['statistics__info']}>
 					<img
@@ -74,6 +95,7 @@ export const ClipDetails = ({ clipInfo }: ClipInfoProps) => {
 						alt='gamepad'
 						width={20}
 					/>
+					{/*Все клипы только для категории Just chatting, API этого не возвращает, поэтому мы это хардкодим*/}
 					<span>Just chatting</span>
 				</div>
 			</div>

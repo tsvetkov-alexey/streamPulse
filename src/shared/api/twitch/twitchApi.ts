@@ -32,9 +32,9 @@ export const twitchApi = baseApi.injectEndpoints({
 			})
 		}),
 		getStreamerInfoByLogin: build.query<StreamerInfoByLoginResponse, StreamerInfoByLoginArgs>({
-			query: ({ login }) => ({
+			query: ({ login, id }) => ({
 				url: '/users',
-				params: { login }
+				params: { login, id }
 			})
 		}),
 		getClipInfoByGameId: build.query<ClipResponse, ClipArgs>({

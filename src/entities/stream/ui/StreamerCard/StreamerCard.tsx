@@ -1,8 +1,8 @@
 import type { StreamerInfoByLoginResponse } from '@/shared/api/twitch/types.ts'
 import defaultBg from '@/shared/assets/images/defaultBackground.png'
 import TwitchIcon from '@/shared/assets/svg/twitchIcon.svg'
-import { formatYear } from '@/shared/lib/format/date.ts'
 import { formatStreamerViewers } from '@/shared/lib/format/viewers.ts'
+import { formatYear } from '@/shared/lib/format/year.ts'
 import { Button } from '@/shared/ui/button'
 
 import styles from './StreamerCard.module.scss'
@@ -16,8 +16,6 @@ export const StreamerCard = ({ streamerInfo, currentUserViewers }: StreamerCardP
 	const streamer = streamerInfo?.data[0]
 	const background = streamer?.offline_image_url || defaultBg
 	const avatar = streamer?.profile_image_url || defaultBg
-
-	console.log('background', background)
 
 	return (
 		<div className={styles['streamer-card']}>

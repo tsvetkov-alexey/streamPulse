@@ -20,7 +20,7 @@
       align-items: center;
       gap: 6px;
       border-top: 1px solid #775477;
-      padding: 10px 12px;
+      padding: 18px 12px;
 
       &:last-child {
         border-bottom: 1px solid #775477;
@@ -36,7 +36,7 @@
     background: #2F1D33;
     margin: 16px 0;
     border: 1px solid #775477;
-    border-radius: 16px;
+    border-radius: 8px;
     padding: 2px 12px;
 
     .streamer {
@@ -46,9 +46,9 @@
     .streamer,
     .clip-creator {
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      padding: 8px 0;
-
+      padding: 12px 10px;
 
       .avatar {
         display: flex;
@@ -59,6 +59,10 @@
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+
+        .secondary {
+          color: #c5c1c1;
+        }
       }
 
       img {
@@ -66,15 +70,17 @@
         border-radius: 50%;
       }
 
-      button {
-        background: inherit;
-        border: 0;
-        color: #fff;
+        button {
+          background: inherit;
+          border: 0;
+          color: #fff;
+          width: 30px;
 
-        &:hover {
-          cursor: pointer;
+          &:hover {
+            cursor: pointer;
+          }
         }
-      }
+
     }
   }
 }
